@@ -85,3 +85,5 @@ names(setDescriptiveNames)<-gsub("BodyBody", "Body", names(setDescriptiveNames))
 
 TidySet <- aggregate(. ~subjectId + activityId, setDescriptiveNames, mean)
 TidySet <- TidySet[order(TidySet$subjectId, TidySet$activityId),]
+
+write.table(TidySet, "TidySet.txt", row.names = FALSE, quote = FALSE)
